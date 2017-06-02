@@ -20,7 +20,7 @@ for(i in 4:16 ){
 #purple4 - purple3 - purple2 - Ossandon
 #blue4 - blue3 - blue2 - Pinera
 #steelblue4 - steelblue 3 - steelblue2 - FKast
-#khaki3 - khaki2 - khaki1 - Goic
+#khaki4 - khaki3 - khaki2 - Goic
 #darkorange3 - darkorange2 - darkorange1 - Guillier
 #tomato3 - tomato2 - tomato1 - MEO
 #brown4 - brown3 - brown3 - Sánchez
@@ -30,7 +30,7 @@ for(i in 4:16 ){
 library(ggplot2)
 
 #We set the prediction date
-predDate="Prediccion al X/X/2017"
+predDate="Prediccion al X/X/2017 | www.17-56.cl"
 
 #We define x as in how many days first round will be held (this value is negative)
 x=data$diasEleccion
@@ -97,7 +97,7 @@ geom_smooth(data=data,aes(x=x,y=GuillierAdj,weight=sumaPesos), fill="darkorange1
 geom_smooth(data=dataMEO,aes(x=xMEO,y=MEOAdj,weight=sumaPesosM), fill="tomato2",colour="tomato2",size=1,span=0.7)+
 geom_smooth(data=dataSanchez,aes(x=xSanchez,y=SanchezAdj,weight=sumaPesosS), fill="brown2",colour="brown3",size=1,span=0.7)+
 geom_smooth(data=data,aes(x=x,y=OssandonAdj,weight=sumaPesos), fill="purple2",colour="purple3",size=1,span=0.7)+
-geom_smooth(data=dataGoic,aes(x=xGoic,y=GoicAdj,weight=sumaPesosG), fill="khaki1",colour="khaki2",size=1,span=0.7)+
+geom_smooth(data=dataGoic,aes(x=xGoic,y=GoicAdj,weight=sumaPesosG), fill="khaki2",colour="khaki3",size=1,span=0.7)+
 geom_smooth(data=dataFK,aes(x=xFK,y=FKastAdj,weight=sumaPesosF), fill="steelblue2",colour="steelblue3",size=1,span=0.7)+
 geom_smooth(data=dataParisi,aes(x=xParisi,y=ParisiAdj,weight=sumaPesosP), fill="lightpink2",colour="lightpink3",size=1,span=0.7)+
 labs(x="Días para la Primera Vuelta",y="Porcentaje de votos en primera vuelta",title=predDate)
@@ -184,12 +184,12 @@ q5=qplot(distossandon, geom="histogram", binwidth = binw,  xlab = "", ylab="Ossa
             color="purple4",size=sizefont)
 
 q6=qplot(distgoic, geom="histogram", binwidth = binw, main="predDate",  xlab = "", ylab="Goic", 
-      fill=I("khaki1"),
+      fill=I("khaki2"),
       xlim=c(0,50),ylim=c(0,2*400))+
       geom_segment(aes(x =predict(goic,eval), y = 0, xend = predict(goic,eval), yend = 600),
-      linetype="dashed",  color="khaki3")+
+      linetype="dashed",  color="khaki4")+
       annotate("text", x=predict(goic,eval), y=730, label= paste(round(predict(goic,eval),1),"%",sep=""),
-            color="khaki3",size=sizefont)
+            color="khaki4",size=sizefont)
 
 q7=qplot(distparisi, geom="histogram", binwidth = binw,  xlab = "", ylab="Parisi", 
       fill=I("lightpink2"),
